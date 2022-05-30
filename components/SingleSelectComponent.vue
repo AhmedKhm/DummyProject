@@ -1,8 +1,8 @@
 <template>
     <div>
-        <b-form-select  v-model="id" size="sm" style="width:15rem;" >
+        <b-form-select  v-model="idUser" size="sm" style="width:15rem;" >
           <b-select-option  value=null> Please select a user... </b-select-option>
-          <b-select-option v-for="user in users" :key="user.id"  :value="user.id"> {{user.firstName}} {{user.lastName}} </b-select-option>  
+          <b-select-option v-for="user in users" :key="user.id"  :value="user.id" > {{user.firstName}} {{user.lastName}} </b-select-option>  
         </b-form-select>
        
     </div>
@@ -10,12 +10,14 @@
 
 <script>
 import axios from "axios";
+import{mapState} from 'vuex'
     export default {
         name:"SingleSelectComponent",
         data() {
             return {
             users: [],
-            id:null
+            idUser:"",
+            selected:false
             }
         },
         async created() {
@@ -34,6 +36,13 @@ import axios from "axios";
             console.log(err);
             }
         },
+        computed: {
+            ...mapState({
+                idUser: state => state.idUser
+            })
+            }
+        
+      
     }
 </script>
 
