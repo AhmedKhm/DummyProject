@@ -1,6 +1,6 @@
 <template>
   <div>
-    <nuxt-link :to="'detailspost/'+ id">
+    
       <div class="container">
         <div class="card">
           <div class="card__header">
@@ -39,18 +39,19 @@
                 <small v-html="publishDateFormatted"> </small>
                 <small v-html="publishDateFormattedTime"> </small>
               </div>
+              <b-button pill variant="outline-secondary" ><nuxt-link :to="'detailspost/'+ idPost">Details</nuxt-link></b-button>
             </div>
           </div>
         </div>
       </div>
-    </nuxt-link>
+    
   </div>
 </template>
 
 <script>
 export default {
   name: "PostComponent",
-  props: ["post", "id", "owner", "image", "text", "publishDate","tags","likes","picture"],
+  props: ["post", "idPost", "owner", "image", "text", "publishDate","tags","likes","picture"],
   computed: {
     publishDateFormatted: function () {
      return new Date(this.publishDate).toLocaleDateString("en-US",{month: 'short', day: 'numeric', year: 'numeric', day: 'numeric'});
@@ -170,5 +171,9 @@ img {
 .likes-container{
   display: flex;
   padding: 1rem;
+}
+.b-button{
+  margin-left: 2rem;
+  
 }
 </style>

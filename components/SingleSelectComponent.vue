@@ -10,7 +10,7 @@
 
 <script>
 import axios from "axios";
-import{mapState} from 'vuex'
+
     export default {
         name:"SingleSelectComponent",
         data() {
@@ -36,12 +36,6 @@ import{mapState} from 'vuex'
             console.log(err);
             }
         },
-        computed: {
-            ...mapState({
-                idUser: state => state.idUser
-            })
-            }
-        
       
     }
 </script>

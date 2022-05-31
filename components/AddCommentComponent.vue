@@ -48,10 +48,8 @@ import axios from "axios";
               
               )
               .then(function (response) {
-              console.log("L'ajout est parfaitement fait")
               })
               .catch(function (error) {
-              console.log("Something went wrong when adding comment")
               });
               }
       }
